@@ -1,0 +1,11 @@
+.feature-title-home{
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    line-height: 70.4px;
+    letter-spacing: normal;
+    margin: auto;
+    padding: 0px 75px;
+    max-width: 800px;
+}
