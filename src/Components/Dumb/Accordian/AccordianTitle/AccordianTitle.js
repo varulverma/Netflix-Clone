@@ -1,18 +1,21 @@
 import React from "react";
 import "./AccordianTitle.css";
 
-function AccordianTitle({ children, ...restProps }) {
-  var isOpen = true;
+function AccordianTitle({ children, isOpen, handleClick, ...restProps }) {
   return (
-    <div className="accordianTitle" {...restProps}>
+    <div
+      className="accordianTitle"
+      {...restProps}
+      onClick={() => handleClick()}
+    >
       {children}
       {
-        (isOpen = true && (
+        (isOpen === true && (
           <img className="accordianIcon" src="././images/icons/close.png"></img>
         ))
       }
       {
-        (isOpen = false && (
+        (isOpen === false && (
           <img className="accordianIcon" src="././images/icons/plus.png"></img>
         ))
       }

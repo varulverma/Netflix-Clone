@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import AccordianItem from "../AccordianItem/AccordianItem";
 import AccordianTitle from "../AccordianTitle/AccordianTitle";
 import AccordianText from "../AcoordianText/AccordianText";
-
-
+import "./AccordianComponent.css";
 
 function AccordianComponent({ children, ...restProps }) {
   const accordianData = [
@@ -33,18 +32,37 @@ function AccordianComponent({ children, ...restProps }) {
     },
   ];
 
+  const [accordianState, setAccordianState] = useState(accordianData.map(() => false)
+  );
+
   return (
     <div className="accordianComponent" {...restProps}>
-      <h1> Frequently Asked Questions</h1>
-      {accordianData.map(item => (
-        <>
-        {console.log(item)}
-        <AccordianItem>
-          <AccordianTitle>{item.title}</AccordianTitle>
-          <AccordianText>{item.text}</AccordianText>
-        </AccordianItem>
-        </>
-      ))}
+      <h1 className="accordianHeading"> Frequently Asked Questions</h1>
+      <div className="accordianWrapper">
+        {accordianData.map((item, index) => (
+          <>
+            <AccordianItem>
+              <AccordianTitle
+                isOpen={accordianState[index]}
+                handleClick={() => {
+                  let currentValue = accordianState[index];
+                  let newValue = !currentValue;
+                  let newAccordianState = [...accordianState];
+                  for (let i = 0; i < accordianState.length; i++) {
+                    newAccordianState[i] = false;
+                  }
+                  newAccordianState[index] = newValue;
+                  setAccordianState(newAccordianState);
+                }}>
+                {item.title}
+              </AccordianTitle>
+              <AccordianText isOpen={accordianState[index]}>
+                {item.text}
+              </AccordianText>
+            </AccordianItem>
+          </>
+        ))}
+      </div>
     </div>
   );
 }

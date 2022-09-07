@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AccordianItem({children, ...restProps}) {
+function AccordianItem({children,isOpen, ...restProps}) {
   return (
     <div className='accordianItem' {...restProps}>
       {children}

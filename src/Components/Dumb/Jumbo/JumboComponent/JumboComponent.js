@@ -41,6 +41,7 @@ function JumboComponent() {
             subtitle={item.subtitle}
             imageSrc={item.imageSrc}
           ></JumboItem>
+          <Seperator />
         </>
       ))}
     </div>

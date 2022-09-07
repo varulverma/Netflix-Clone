@@ -1,8 +1,7 @@
 import React from "react";
 import './AccordianText.css';
 
-function AccordianText({children, ...restProps}) {
-    const isOpen = true;
+function AccordianText({children, isOpen, ...restProps}) {
   return (
     isOpen === true ?
     <div className="accordianText" {...restProps}>
